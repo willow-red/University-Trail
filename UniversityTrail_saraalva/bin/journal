@@ -1,0 +1,77 @@
+Journal entries of all work sessions
+
+    Throughout working on your project you will add journal entries detailing programming sessions of more than 30 minutes to the working document. 
+    Each journal log will summarize what you accomplished during programming sessions. 
+
+	An Overview of what you completed and the design decisions you made, any aspects that still are not functional or were not completed fully, and a representative 
+	sample run of your program
+
+    A representative sample run of the program (showing the user interactions and output of your system) - 
+    this may or may not be similar to the mock run you create in HW 12. 
+
+
+April 28, 2022
+
+Today I started making my different classes. I added some notes to my planning sheet, which will help me update my UML diagram later.
+
+May 1,2022
+Today I finalized my classes. I started making my shop enum, and making an enum method that prints it nicely. My current approach
+to this project is going through my mock run and implementing different things as they come up. I find it hard to think about the program
+as a whole and would rather build it up from my guide.
+Next, I would like to work on the shop system more, and the class schedule.
+This is my output so far:
+Welcome to University Trail
+--------------------------------
+
+	1. Begin Semester
+	2. Quit
+
+--------------------------------
+What is your choice?
+
+>> > 1
+
+Select a Major
+--------------------------------
+
+0. Art
+1. History
+2. Science
+3. Law
+4. Business
+5. Economics
+6. Computer Science
+7. English
+8. Medicine
+9. Film
+
+--------------------------------
+What is your choice?
+
+>> > 8
+Student [name=null, funds=0.0, year=null, weekInSemester=0, mealSwipes=0, happinessStatus=0, healthStatus=0, gradesStatus=0]
+
+Welcome to University! It is your freshman year, and the start of your adult life!
+You must survive your first semester by balancing good grades, chores, work, and health.
+You are a Medicine major and have a very flexible job at the campus Library,
+which pays at the rate of $12 an hour.
+
+
+Before classes start, you must purchase supplies for class, food, and other essentials from the University Store.
+You have $1000 in your bank account.
+
+Hit ENTER to continue >
+
+--------------------------------
+	University Store
+--------------------------------
+0. Textbook		$80.00
+1. Notebook		$5.00
+2. Novel		$10.00
+3. Paint Set		$50.00
+4. Lab Coat		$20.00
+5. Computer Mouse	$15.00
+6. Graphing Calculator	$75.00
+7. Meal Swipe		$12.00
+8. Exit Store
+--------------------------------

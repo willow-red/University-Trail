@@ -1,0 +1,286 @@
+Welcome to University Trail
+----------------------------
+
+    1. Begin Semester
+    2. Quit
+
+----------------------------
+What is your choice?
+
+>> 1
+
+----------------------------
+Open a Save File:
+    1. (Empty)
+    2. (Empty)
+    3. (Empty)
+----------------------------
+What is your choice?
+
+>>1
+
+Save File 1 is empty. Create a new one:
+    Enter a name:
+>>Sara
+
+Created new save file named "Sara"!
+
+Select a Major
+----------------------------
+
+    1. Art
+    2. History
+    3. Science
+    4. Law
+    5. Business
+    6. Economics
+    7. Computer Science
+    8. English
+    9. Medicine
+    10. Film
+
+----------------------------
+>> 10
+
+Welcome to University! It is your freshman year, and the start of your adult life! You must
+survive your first semester by balancing good grades, chores, work, and health.
+You are a FILM major and have a very flexible job at the campus Library, which pays at the rate of
+$12 an hour.
+
+Your class schedule is:
+
+    FILM101 - Intro to Film
+    FILM102 - History of Film
+    FILM103 - Intro to Cinematography
+    MATH100 - Calculus 1
+
+Before classes start, you must purchase supplies for class, food, and other essentials from the University Store.
+You have $1000 in your bank account.
+
+Press ENTER to continue
+
+--------------------------------------
+            University Store
+--------------------------------------
+    1. Textbook                $80.00
+    2. Notebook                $5.00
+    3. Novel                   $10.00
+    4. Paint Set               $50.00
+    5. Lab Coat                $20.00
+    6. Computer Mouse          $15.00
+    7. Graphing Calculator     $75.00
+    8. Meal Swipe              $12.00
+    9. Exit Store
+--------------------------------------
+Here is your class supply list:
+    2 Textbooks (not purchased)
+    1 Graphing Calculator (not purchased)
+    1 Notebook (not purchased)
+---------------------------------------
+    Total Spent: $0.00
+    Amount Left: $1000.00
+
+What is your choice?
+>> 1
+
+How many textbooks?
+>> 2
+
+--------------------------------------
+            University Store
+--------------------------------------
+    1. Textbook                $80.00
+    2. Notebook                $5.00
+    3. Novel                   $10.00
+    4. Paint Set               $50.00
+    5. Lab Coat                $20.00
+    6. Computer Mouse          $15.00
+    7. Graphing Calculator     $75.00
+    8. Meal Swipe              $12.00
+    9. Exit Store
+--------------------------------------
+Here is your class supply list:
+    2 Textbooks (purchased)
+    1 Graphing Calculator (not purchased)
+    1 Notebook (not purchased)
+---------------------------------------
+    Total Spent: $160.00
+    Amount Left: $840.00
+
+What is your choice?
+>> 7
+
+--------------------------------------
+            University Store
+--------------------------------------
+    1. Textbook                $80.00
+    2. Notebook                $5.00
+    3. Novel                   $10.00
+    4. Paint Set               $50.00
+    5. Lab Coat                $20.00
+    6. Computer Mouse          $15.00
+    7. Graphing Calculator     $75.00
+    8. Meal Swipe              $12.00
+    9. Exit Store
+--------------------------------------
+Here is your class supply list:
+    2 Textbooks (purchased)
+    1 Graphing Calculator (purchased)
+    1 Notebook (not purchased)
+---------------------------------------
+    Total Spent: $235.00
+    Amount Left: $765.00
+
+What is your choice?
+>> 8
+
+How many Meal Swipes?
+>> 20
+
+--------------------------------------
+            University Store
+--------------------------------------
+    1. Textbook                $80.00
+    2. Notebook                $5.00
+    3. Novel                   $10.00
+    4. Paint Set               $50.00
+    5. Lab Coat                $20.00
+    6. Computer Mouse          $15.00
+    7. Graphing Calculator     $75.00
+    8. Meal Swipe              $12.00
+    9. Exit Store
+--------------------------------------
+Here is your class supply list:
+    2 Textbooks (purchased)
+    1 Graphing Calculator (purchased)
+    1 Notebook (not purchased)
+---------------------------------------
+    Total Spent: $475.00
+    Amount Left: $525.00
+//pretend you bought the entire list - you can't exit until you did
+What is your choice?
+>> 9
+
+Week 1 of 18
+---------------------
+This week of classes went smoothly! 
+You will have consumed 7 meal swipes by the end of the week.
+Would you like to do something else this week(Y/N)?
+
+What is your choice?
+>> Y
+
+---------------------
+Meal Swipes: 13
+Happiness: 100/100
+Health: 100/100
+Funds: $525
+Grades: 100/100
+---------------------
+    1. Study
+    2. Work
+    3. Go to club meeting
+    4. Go to sporting event
+    5. Take a relaxing walk
+    6. Go to a party
+    7. Visit University Store
+    8. Continue to next week
+    9. Save and Exit
+
+---------------------
+What is your choice?
+>> 2
+
+How many hours will you work?
+>> 8
+
+You work for 8 hours this week. You earn $96.00.
+Your health has depleted by 5 due to fatigue from a long shift.
+Your happiness has dropped by 5 from work stress.
+Your grades have dropped by 5 due to busyness.
+
+---------------------
+Meal Swipes: 13
+Happiness: 95/100
+Health: 95/100
+Funds: $621
+Grades: 95/100
+---------------------
+    1. Study
+    2. Work
+    3. Go to club meeting
+    4. Go to sporting event
+    5. Take a relaxing walk
+    6. Go to a party
+    7. Visit University Store
+    8. Continue to next week
+    9. Save and Exit
+
+---------------------
+What is your choice?
+>> 6
+
+You go to a late night party. 
+Your health has dropped by 10 due to fatigue.
+Your grades have dropped by 5.
+Your happiness has increased by 5.
+
+---------------------
+Meal Swipes: 13
+Happiness: 100/100
+Health: 85/100
+Funds: $621
+Grades: 90/100
+---------------------
+    1. Study
+    2. Work
+    3. Go to club meeting
+    4. Go to sporting event
+    5. Take a relaxing walk
+    6. Go to a party
+    7. Visit University Store
+    8. Continue to next week
+    9. Save and Exit
+
+---------------------
+What is your choice?
+>> 8
+
+// skip ahead a few weeks
+Week 4 of 18
+---------------------
+Pop Quiz! Your grade status is 85/100, so you earned a B on the quiz.
+
+You will have consumed 7 meal swipes by the end of the week.
+Warning! You only have 5 meal swipes left.
+Would you like to do something else this week(Y/N)?
+
+What is your choice?
+>> N
+
+Week 8 of 18
+---------------------
+
+You will have consumed 5 meal swipes by the end of the week.
+You haven't eaten enough, so your health has dropped by 50.
+Would you like to do something else this week(Y/N)?
+
+What is your choice?
+>> N
+
+Week 9 of 18
+---------------------
+
+You will have consumed 0 meal swipes by the end of the week.
+You have gone hungry this week! Your health has dropped to 0.
+GAME OVER!
+
+Restart? (Y/N)
+
+What is your choice?
+>> N
+
+
+
+
+

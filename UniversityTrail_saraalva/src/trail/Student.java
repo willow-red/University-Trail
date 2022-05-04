@@ -3,7 +3,11 @@
  */
 package trail;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.Set;
+
 
 /**
  * @author saraalvarado
@@ -20,9 +24,39 @@ public abstract class Student implements HasStatus{
 	private int happinessStatus;
 	private int healthStatus;
 	private int gradesStatus;
+	private ArrayList<Shop> supplyList;
+	private ClassSchedule schedule;
+	private String club;
+	private MenuEvent activity;
+	private ArrayList<String> supplyListStrings;
 	
+	
+	//constructor with all fields, for when loading save files:
+	public Student(String name, double funds, String year, int weekInSemester, int mealSwipes, int happinessStatus,
+			int healthStatus, int gradesStatus, ArrayList<Shop> supplyList, ClassSchedule schedule, String club,
+			MenuEvent activity, ArrayList<String> supplyListStrings) {
+		super();
+		this.name = name;
+		this.funds = funds;
+		this.year = year;
+		this.weekInSemester = weekInSemester;
+		this.mealSwipes = mealSwipes;
+		this.happinessStatus = happinessStatus;
+		this.healthStatus = healthStatus;
+		this.gradesStatus = gradesStatus;
+		this.supplyList = supplyList;
+		this.schedule = schedule;
+		this.club = club;
+		this.activity = activity;
+		this.supplyListStrings = supplyListStrings;
+	}
+
+
 	public String getName() {
 		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public double getFunds() {
@@ -67,6 +101,37 @@ public abstract class Student implements HasStatus{
 	public void setGradesStatus(int gradesStatus) {
 		this.gradesStatus = gradesStatus;
 	}
+	public ArrayList<Shop> getSupplyList() {
+		return supplyList;
+	}
+	public void setSupplyList(ArrayList<Shop> supplyList) {
+		this.supplyList = supplyList;
+	}
+	public ClassSchedule getSchedule() {
+		return schedule;
+	}
+	public void setSchedule(ClassSchedule schedule) {
+		this.schedule = schedule;
+	}
+	public String getClub() {
+		return club;
+	}
+	public void setClub(String club) {
+		this.club = club;
+	}
+	public MenuEvent getActivity() {
+		return activity;
+	}
+	public void setActivity(MenuEvent activity) {
+		this.activity = activity;
+	}
+	public ArrayList<String> getSupplyListStrings() {
+		return supplyListStrings;
+	}
+	public void setSupplyListStrings(ArrayList<String> supplyListStrings) {
+		this.supplyListStrings = supplyListStrings;
+	}
+
 
 	@Override
 	public int hashCode() {
@@ -94,6 +159,31 @@ public abstract class Student implements HasStatus{
 		return "Student [name=" + name + ", funds=" + funds + ", year=" + year + ", weekInSemester=" + weekInSemester
 				+ ", mealSwipes=" + mealSwipes + ", happinessStatus=" + happinessStatus + ", healthStatus="
 				+ healthStatus + ", gradesStatus=" + gradesStatus + "]";
+	}
+	
+	
+	//print supply list
+	public void printSupplyList(){
+		//hashmap
+		HashMap<String, Integer> supplies = new HashMap<>();
+		//count dupes in supplylist:
+		for(String s: this.getSupplyListStrings()) {
+			int count = 0;
+			for(String j: this.getSupplyListStrings()) {
+				if(s.equalsIgnoreCase(j)) {
+					count++;
+					supplies.put(s, count);
+				}
+				else {
+					supplies.put(s, count);
+				}
+			}
+		}
+		Set<String> keys = supplies.keySet();
+		System.out.println("Here is your class supply list:");
+		for(String key:keys) {
+			System.out.println("\t" + supplies.get(key) + " " + key);
+		}
 	}
 
 	

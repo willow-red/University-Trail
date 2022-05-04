@@ -197,6 +197,7 @@ public class Helper {
 		for(int i = 0; i<32; i++) {
 			System.out.print("-");
 		}
+		System.out.print("\n");
    }
    public void printLine(){
 		for(int i = 0; i<32; i++) {

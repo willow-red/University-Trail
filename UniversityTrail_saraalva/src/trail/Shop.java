@@ -52,5 +52,8 @@ public enum Shop {
 		}
 		return menu;
 	}
+	public String getItem() {
+		return item;
+	}
 
 }

@@ -1,20 +1,132 @@
 package trail;
 
+import java.util.ArrayList;
 
 public class MainSystem {
 	//helper class:
 	private Helper bff;
 	//this prompt will be used repeatedly when getting user input:
 	private String playerPrompt;
+	//list of menu items
+	private ArrayList<MenuEvent> eventMenu;
+	private Student player;
+	private boolean gameOver;
 	
 	
 	// TODO file system thing
 	public void run() {
-		
+		boolean keepGoing = false;
+		printWeekOverview();
+		//if game over:
+		if(gameOver) {
+			bff.print("You were not able to complete this semester. Try again :(");
+		}
+		else {
+			bff.print("Would you like to do something else this week? (y/n)");
+			bff.print("\n" + playerPrompt);
+			keepGoing = bff.inputYesNo(">>");
+			//if not skip week, call menu loop
+			if(keepGoing) {
+				menuLoop();
+			}
+		}
+
 		
 	}
-	public Student startGame() {
-		Student player = null;
+	public void menuLoop() {
+		//menu events
+		printStats();
+		printMenu(eventMenu);
+		bff.print(playerPrompt);
+		int choice = bff.inputInt(">>", 0, 11);
+		switch(choice) {
+		case 0:
+			//study
+			bff.print("Which class would you like to study for?");
+			//print class schedule
+			int count = 0;
+			for(ClassOnSchedule c: player.getSchedule().getClassList()) {
+				bff.print(count + ". " + c.getClassName());
+				count++;
+			}
+			bff.print(playerPrompt);
+			int classChoice = bff.inputInt(">>", 0, 3);
+			switch(classChoice) {
+			//what class you picked
+				case 0:
+					
+					break;
+				
+			}
+			break;
+		
+		}
+	}
+	public void printWeekOverview() {
+		//print player stats to be displayed every round:
+		bff.print("Week " + player.getWeekInSemester() + " of 18");
+		bff.printLine();
+		bff.print("A week of classes has gone by.");
+		checkMealSwipes();
+		checkStatuses();
+		
+	}
+	public void printStats() {
+		bff.printLine();
+		bff.print("Meal Swipes: " + player.getMealSwipes());
+		bff.print("Happiness: " + player.getHappinessStatus() + "/100");
+		bff.print("Health: " + player.getHealthStatus() + "/100");
+		bff.print("Grades: " + player.getGradesStatus() + "/100");
+		bff.print("Funds: $" + String.format("%.2f", player.getFunds()));
+		bff.printLine();
+	
+	}
+	public void checkStatuses() {
+		//check all status to see if they are in danger of losing:
+		if(player.getGradesStatus() <= 20 && !(player.getGradesStatus() <= 0)) {
+			bff.print("Warning! Your grade status is very low.");
+		}
+		if(player.getHealthStatus() <= 20 && !(player.getHealthStatus() <= 0)) {
+			bff.print("Warning! Your health is very low.");
+		}
+		if(player.getHappinessStatus() <= 20 && !(player.getHappinessStatus() <= 0)) {
+			bff.print("Warning! Your happiness status is very low.");
+		}
+		//check all status to see if its game over:
+		if(player.getHealthStatus() <= 0) {
+			gameOver = true;
+			bff.print("Your health has dropped to 0.\nGAME OVER!");
+		}
+		if(player.getGradesStatus() <= 0) {
+			gameOver = true;
+			bff.print("You have failed your classes.\nGAME OVER!");
+		}
+		if(player.getHappinessStatus() <= 0) {
+			gameOver = true;
+			bff.print("Your mental health is too poor to continue.\nGAME OVER!");
+		}
+		
+	}
+	public void checkMealSwipes() {
+		//subtract meal swipes
+		if(player.getMealSwipes() < 7) {
+			bff.print("You will have consumed " + player.getMealSwipes() + " meal swipes by the end of the week.");
+			int difference = 7 - player.getMealSwipes();
+			int healthDropped = difference*20;
+			bff.print("You haven't eaten enough this week so your health has dropped by " + healthDropped);
+			player.setHealthStatus(player.getHealthStatus() - healthDropped);
+			player.setMealSwipes(0);
+		}
+		else {
+			player.setMealSwipes(player.getMealSwipes()-7);
+			bff.print("You will have consumed 7 meal swipes by the end of the week.");
+		}
+		//if they are running low
+		if(player.getMealSwipes() < 7) {
+			bff.print("Warning! You have " + player.getMealSwipes() + " meal swipes left.");
+		}
+	}
+	public void startGame() {
 		//get player name
 		//TODO make a player file system later:
 		bff.print("What is your name?");
@@ -73,10 +185,40 @@ public class MainSystem {
 		bff.inputLine("Hit ENTER to continue");
 		//call supplies buying method:
 		buySupplies(player);
-		System.out.println(player.getFunds());
-
-		//return the player to be used in the main game:
-		return player;
+		
+		
+	}
+	
+	public void makeMenu(){
+		//default menu
+		//happiness, health, grades, name, money
+		this.eventMenu.add(new MenuEvent(-10, -5, 5,"Study", 0));
+		this.eventMenu.add(new MenuEvent(-5, -10, -15,"Work", 12));
+		this.eventMenu.add(new MenuEvent(10, 0, -5,"Go to " + this.player.getClub(), 0));
+		this.eventMenu.add(new MenuEvent(15, 0, -5,"Go to Sporting Event", 0));
+		this.eventMenu.add(new MenuEvent(10, 10, 0,"Take a Relaxing Walk", 0));
+		this.eventMenu.add(new MenuEvent(15, -20, -15,"Go to a Party", 0));
+		this.eventMenu.add(new MenuEvent(-5, 0, 5,"Study", 0));
+		//custom event
+		this.eventMenu.add(this.player.getActivity());
+		
+	}
+	//print menu nicely
+	public void printMenu(ArrayList<MenuEvent> menu) {
+		int counter = 0;
+		for(MenuEvent m: menu) {
+			bff.print(counter + ". " + m.getNameOfEvent());
+			counter++;
+		}
+		bff.print(counter + ". View Report Card");
+		counter++;
+		bff.print(counter + ". Visit University Store");
+		counter++;
+		bff.print(counter + ". Continue to Next Week");
+		counter++;
+		bff.print(counter + ". Save and Exit");
+		bff.printLine();
+		bff.print("\n");
 	}
 	//pass in specific major's supply list:
 	public void buySupplies(Student person) {
@@ -200,15 +342,12 @@ public class MainSystem {
 		
 	}
 	
-	public void gameLoop() {
-		//starts game - things that happen every round
-	}
-	
-	
 	//TODO constructor for MainSystem class - initialize variables
 	public MainSystem() {
 		bff = new Helper();
 		playerPrompt = "What is your choice?\n";
+		eventMenu = new ArrayList<>();
+		gameOver = false;
 	}
 	
 	//for tests rn
@@ -227,6 +366,8 @@ public class MainSystem {
 		if(start == 1) {
 			//TODO check if the account is new or not. rn let's assume it is :) run startGame which sets up everything.
 			program.startGame();
+			program.makeMenu();
+			//loop run until semester ends or until player loses
 			program.run();
 		}
 
@@ -234,9 +375,5 @@ public class MainSystem {
 	
 
 }
-
-
-
-
 
 

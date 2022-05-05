@@ -185,6 +185,16 @@ public abstract class Student implements HasStatus{
 			System.out.println("\t" + supplies.get(key) + " " + key);
 		}
 	}
+	//from interface
+	public void printHappinessStatus() {
+		System.out.println(this.happinessStatus + "/" + 100);
+	}
+	public void printHealthStatus() {
+		System.out.println(this.healthStatus + "/" + 100);
+	}
+	public void printGradesStatus() {
+		System.out.println(this.gradesStatus + "/" + 100);
+	}
 
 	
 }

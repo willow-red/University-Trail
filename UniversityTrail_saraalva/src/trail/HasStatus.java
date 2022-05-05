@@ -13,4 +13,12 @@ public interface HasStatus {
 	public void setHealthStatus(int numStatusPoints);
 	public void setGradesStatus(int numStatusPoints);
 	
+	public int getHappinessStatus();
+	public int getHealthStatus();
+	public int getGradesStatus();
+	
+	public void printHappinessStatus();
+	public void printHealthStatus();
+	public void printGradesStatus();
+	
 }

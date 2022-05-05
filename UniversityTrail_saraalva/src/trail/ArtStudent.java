@@ -51,7 +51,7 @@ public class ArtStudent extends Student{
 	}
 	//TODO make menu event
 	private static MenuEvent makeActivity() {
-		MenuEvent activity = new MenuEvent();
+		MenuEvent activity = new MenuEvent(10, 0, 0, "Draw in Sketchbook", 0);
 		return activity;
 	}
 

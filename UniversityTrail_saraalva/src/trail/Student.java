@@ -29,9 +29,10 @@ public abstract class Student implements HasStatus{
 	private String club;
 	private MenuEvent activity;
 	private ArrayList<String> supplyListStrings;
+	private String majorName;
 	
 	
-	//constructor with all fields, for when loading save files:
+	//constructor with all fields:
 	public Student(String name, double funds, String year, int weekInSemester, int mealSwipes, int happinessStatus,
 			int healthStatus, int gradesStatus, ArrayList<Shop> supplyList, ClassSchedule schedule, String club,
 			MenuEvent activity, ArrayList<String> supplyListStrings) {
@@ -49,9 +50,15 @@ public abstract class Student implements HasStatus{
 		this.club = club;
 		this.activity = activity;
 		this.supplyListStrings = supplyListStrings;
+		this.majorName = null;
 	}
-
-
+	
+	public String getMajorName() {
+		return majorName;
+	}
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
+	}
 	public String getName() {
 		return name;
 	}
@@ -88,19 +95,36 @@ public abstract class Student implements HasStatus{
 	}
 	public void setHappinessStatus(int happinessStatus) {
 		this.happinessStatus = happinessStatus;
+		if(this.happinessStatus > 100) {
+			this.happinessStatus = 100;
+		}
 	}
 	public int getHealthStatus() {
 		return healthStatus;
 	}
 	public void setHealthStatus(int healthStatus) {
 		this.healthStatus = healthStatus;
+		if(this.healthStatus > 100) {
+			this.healthStatus = 100;
+		}
 	}
 	public int getGradesStatus() {
 		return gradesStatus;
 	}
 	public void setGradesStatus(int gradesStatus) {
 		this.gradesStatus = gradesStatus;
+		if(this.gradesStatus > 100) {
+			this.gradesStatus = 100;
+		}
 	}
+	public void setGradesStatus() {
+		int total = 0;
+		for(ClassOnSchedule c: schedule.getClassList()) {
+			total += c.getClassGradeStatus();
+		}
+		this.gradesStatus = total;
+	}
+	
 	public ArrayList<Shop> getSupplyList() {
 		return supplyList;
 	}

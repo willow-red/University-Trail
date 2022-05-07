@@ -15,11 +15,12 @@ public class ClassOnSchedule {
 	private boolean hasFinalExam;
 	private boolean hasFinalProject;
 	private boolean hasMidterm;
+	private boolean studied;
 	
 	
 
 	public ClassOnSchedule(String className, String classGradeLetter, int classGradeNum, int classGradeStatus, int numStudyingRequired,
-			boolean hasFinalExam, boolean hasFinalProject, boolean hasMidterm) {
+			boolean hasFinalExam, boolean hasFinalProject, boolean hasMidterm, boolean studied) {
 		super();
 		this.className = className;
 		this.classGradeLetter = classGradeLetter;
@@ -29,11 +30,59 @@ public class ClassOnSchedule {
 		this.hasFinalExam = hasFinalExam;
 		this.hasFinalProject = hasFinalProject;
 		this.hasMidterm = hasMidterm;
+		this.studied = studied;
 	}
 
 	//when making a schedule, use default values:
 	public ClassOnSchedule(String className, int numStudyingRequired, boolean hasFinalExam, boolean hasFinalProject, boolean hasMidterm) {
-		this(className, "A", 100, 25, numStudyingRequired, hasFinalExam, hasFinalProject, hasMidterm);
+		this(className, "A", 100, 25, numStudyingRequired, hasFinalExam, hasFinalProject, hasMidterm, false);
+	}
+	public ClassOnSchedule(String className, int numStudyingRequired) {
+		this(className, "A", 100, 25, numStudyingRequired, true, false, true, false);
+	}
+	
+	//calc grade letter:
+	public void setClassGradeLetter() {
+		if(this.classGradeNum > 93) {
+			this.classGradeLetter = "A";
+		}
+		else if(this.classGradeNum < 93 && this.classGradeNum >= 90) {
+			this.classGradeLetter = "A-";
+		}
+		else if(this.classGradeNum < 90 && this.classGradeNum >= 87) {
+			this.classGradeLetter = "B+";
+		}
+		else if(this.classGradeNum < 87 && this.classGradeNum >= 83) {
+			this.classGradeLetter = "B";
+		}
+		else if(this.classGradeNum < 83 && this.classGradeNum >= 80) {
+			this.classGradeLetter = "B-";
+		}
+		else if(this.classGradeNum < 80 && this.classGradeNum >= 77) {
+			this.classGradeLetter = "C+";
+		}
+		else if(this.classGradeNum < 77 && this.classGradeNum >= 73) {
+			this.classGradeLetter = "C";
+		}
+		else if(this.classGradeNum < 73 && this.classGradeNum >= 70) {
+			this.classGradeLetter = "C-";
+		}
+		else if(this.classGradeNum < 70 && this.classGradeNum >= 67) {
+			this.classGradeLetter = "D+";
+		}
+		else if(this.classGradeNum < 67 && this.classGradeNum >= 65) {
+			this.classGradeLetter = "D";
+		}
+		else {
+			this.classGradeLetter = "F";
+		}
+	
+	}
+	public void study() {
+		this.classGradeNum += 5*this.numStudyingRequired;
+		if(this.classGradeNum > 100) {
+			this.classGradeNum = 100;
+		}
 	}
 
 	public String getClassName() {
@@ -100,10 +149,18 @@ public class ClassOnSchedule {
 		this.hasMidterm = hasMidterm;
 	}
 
+	public boolean isStudied() {
+		return studied;
+	}
+
+	public void setStudied(boolean studied) {
+		this.studied = studied;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(classGradeLetter, classGradeNum, classGradeStatus, className, hasFinalExam, hasFinalProject,
-				hasMidterm, numStudyingRequired);
+				hasMidterm, numStudyingRequired, studied);
 	}
 
 	@Override
@@ -118,7 +175,8 @@ public class ClassOnSchedule {
 		return Objects.equals(classGradeLetter, other.classGradeLetter) && classGradeNum == other.classGradeNum
 				&& classGradeStatus == other.classGradeStatus && Objects.equals(className, other.className)
 				&& hasFinalExam == other.hasFinalExam && hasFinalProject == other.hasFinalProject
-				&& hasMidterm == other.hasMidterm && numStudyingRequired == other.numStudyingRequired;
+				&& hasMidterm == other.hasMidterm && numStudyingRequired == other.numStudyingRequired
+				&& studied == other.studied;
 	}
 
 	@Override
@@ -126,10 +184,10 @@ public class ClassOnSchedule {
 		return "ClassOnSchedule [className=" + className + ", classGradeLetter=" + classGradeLetter + ", classGradeNum="
 				+ classGradeNum + ", classGradeStatus=" + classGradeStatus + ", numStudyingRequired="
 				+ numStudyingRequired + ", hasFinalExam=" + hasFinalExam + ", hasFinalProject=" + hasFinalProject
-				+ ", hasMidterm=" + hasMidterm + "]";
+				+ ", hasMidterm=" + hasMidterm + ", studied=" + studied + "]";
 	}
 
-
+	
 	
 
 }

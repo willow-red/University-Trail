@@ -7,8 +7,17 @@ public class ArtStudent extends Student{
 	//default (new player) constructor:
 	public ArtStudent(String name) {
 		super(name, 1000, "Freshman", 1, 0, 100, 100, 100, makeSupplyList(), makeSchedule(), "Figure Drawing Club", makeActivity(), makeStringSupplyList(makeSupplyList()));
+		super.setMajorName("ArtStudent");
 	}
-	
+	//constructor for loading data:
+	//String typeOfStudent, String name, double funds, String year, int week, 
+	//int mealSwipes, int happiness, int health, int grades
+	public ArtStudent(String name, double funds, String year, int week, int mealSwipes, int happiness, int health, int grades) {
+		super(name, funds, year, week, mealSwipes, happiness, health, grades, makeSupplyList(), makeSchedule(), "Figure Drawing Club", 
+				makeActivity(), makeStringSupplyList(makeSupplyList()));
+		super.setMajorName("ArtStudent");
+	}
+
 	private static ArrayList<Shop> makeSupplyList(){
 		ArrayList<Shop> supplies = new ArrayList<>();
 		//hardcode some supplies for each major:
@@ -34,16 +43,16 @@ public class ArtStudent extends Student{
 		ArrayList<ClassOnSchedule> classes = new ArrayList<>();
 		//hardcode class names:
 		classNames.add("ART101 - Drawing 1");
-		ClassOnSchedule a = new ClassOnSchedule("ART101 - Drawing 1", 0, false, true, false);
+		ClassOnSchedule a = new ClassOnSchedule("ART101 - Drawing 1", 0);
 		classes.add(a);
 		classNames.add("ART102 - Intro to Art History");
-		ClassOnSchedule b = new ClassOnSchedule("ART102 - Intro to Art History", 2, true, false, true);
+		ClassOnSchedule b = new ClassOnSchedule("ART102 - Intro to Art History", 2);
 		classes.add(b);
 		classNames.add("ART103 - Painting 1");
-		ClassOnSchedule c = new ClassOnSchedule("ART103 - Painting 1", 0, false, true, false);
+		ClassOnSchedule c = new ClassOnSchedule("ART103 - Painting 1", 0);
 		classes.add(c);
 		classNames.add("PSYCH101 - Intro to Psychology");
-		ClassOnSchedule d = new ClassOnSchedule("PSYCH101 - Intro to Psychology", 3, true, false, true);
+		ClassOnSchedule d = new ClassOnSchedule("PSYCH101 - Intro to Psychology", 3);
 		classes.add(d);
 
 		ClassSchedule schedule = new ClassSchedule(classNames, classes);
@@ -54,11 +63,6 @@ public class ArtStudent extends Student{
 		MenuEvent activity = new MenuEvent(10, 0, 0, "Draw in Sketchbook", 0);
 		return activity;
 	}
-
-
-
-
-
 
 
 

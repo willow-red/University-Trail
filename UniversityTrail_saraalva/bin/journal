@@ -1,17 +1,4 @@
-Journal entries of all work sessions
-
-    Throughout working on your project you will add journal entries detailing programming sessions of more than 30 minutes to the working document. 
-    Each journal log will summarize what you accomplished during programming sessions. 
-
-	An Overview of what you completed and the design decisions you made, any aspects that still are not functional or were not completed fully, and a representative 
-	sample run of your program
-
-    A representative sample run of the program (showing the user interactions and output of your system) - 
-    this may or may not be similar to the mock run you create in HW 12. 
-
-
 April 28, 2022
-
 Today I started making my different classes. I added some notes to my planning sheet, which will help me update my UML diagram later.
 
 May 1,2022
@@ -27,3 +14,21 @@ as well as a class schedule.
 May 3, 2022
 My first session today included me adding a way to print the supplies list, and I started making the class schedule classes.
 My goal is to complete the setup process and then begin working on the events system.
+
+May 4, 2022
+Today I worked a lot on the grades system, specifically the studying menu option. For this option, a player chooses
+which class they will study for. It checks how much studying the class requires and changes the player's status accordingly.
+This part was very tricky, since each class has a different studying time. I also worked on different methods that would
+calculate the total GPA and letter grades that change depending on if the player studied. 
+
+May 5, 2022
+Today I added the menu loop. It updates the current player's stats depending on what event they choose to do. I added some menu
+options that are custom to the player's major.
+
+May 6, 2022
+Today I added a save file method. This method writes attributes of the player into a text file and allows them to be
+reloaded if they would like to continue playing later. It generates a text file that is stored in a saves file in the Eclipse project.
+I also hardcoded all of the other majors, because previously I only was using ArtStudent as a test.
+I think I am finished with the project! I have a few things that I was not able to implement. The main thing would be the Exam class.
+Also for the shop, I wasn't able to figure out how to determine if someone actually bought their supply list or not, so for now
+it remains purely for looks.

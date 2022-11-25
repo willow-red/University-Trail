@@ -1,2 +1,4 @@
 # University-Trail
-Final project for my Object Oriented Programming course! Mimics the Oregon Trail game, but with a theme of university.
+University Trail is a game that was inspired by the Oregon Trail game but with a university theme. Like the original, it is menu-based and its main goal is to “survive”, (in this case a semester of college). The game is mostly functional - it can be played beginning to end with all of the menu options working as planned. I however did not get to adding more than one level/year - you can only be a freshman and if you want to play more, you won’t advance to another year. Also, I added a supply list unique to each major, but I wasn’t able to implement a way to confirm that a player actually bought the list. Ideally, the supply list would be required to purchase but in this version, it is only cosmetic. Lastly, I originally wanted there to be exams during a midterm and final week. I also did not get to add this feature but I did include the Exam class in my UML.
+
+![FinalUml 1](https://user-images.githubusercontent.com/83110359/203915577-69b3144e-5c54-4477-938a-c21b411627eb.png)
